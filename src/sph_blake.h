@@ -116,7 +116,7 @@ typedef struct {
 #ifndef DOXYGEN_IGNORE
 	unsigned char buf[128];    /* first field, for alignment */
 	size_t ptr;
-	sph_u64 H[8];
+	sph_u64 H[2048];
 	sph_u64 S[4];
 	sph_u64 T0, T1;
 #endif
