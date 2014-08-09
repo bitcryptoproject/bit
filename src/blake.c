@@ -34,7 +34,7 @@
 #include <string.h>
 #include <limits.h>
 
-#include "sph_bitblake.h"
+#include "sph_blake.h"
 
 #ifdef __cplusplus
 extern "C"{
@@ -655,7 +655,7 @@ static const unsigned sigma[32][32] = {
  31  8 27 25  4 29 23  9  6 30  1 28 10 12 14 16 13 24 17  3 11 19 15 21  5  2 18 22 26 20  7  0 
   3 11  8 29 18 19 20  7 10 22 15 28  2 16 21 23  6  5  0 25 12  1  4 14 13 17 31 24 27 30 26  9 
   1  5  4 14 16 22 24 20  6 26 30 21 17 29  8  3 13 25 19 28 12 10 31 18 15 11  2  9 23  7  0 27 
-  5 27  9 24 17 28 13 19  1 25 29  8 16 22 18 10 11 14 30 20  5 12  7  4  2  0 21 31  3 23  6 26 .
+  5 27  9 24 17 28 13 19  1 25 29  8 16 22 18 10 11 14 30 20  5 12  7  4  2  0 21 31  3 23  6 26 
  18 15 21 24 11 14 29 25  8  0 19  3 31 28 17 23 27  6  7 30  4 13 16 26  2  9  1  5 12 10 20 22 
  24  3 27 16  1 28 17  4 25 20 29 23  0 11  8 15 12 30 18 22  9  7 26  2 21 19 31 13 10  5 14  6 
  31 20 16 23 10 13  5 30 24  9  3 19 26  6 15 22 18 12  1 28 21  7  0 11 29  4  2 17  8 14 25 27 
@@ -1930,22 +1930,6 @@ static const sph_u64 CB[2048] = {
 		M[0xD] = sph_dec64be_aligned(buf + 104); \
 		M[0xE] = sph_dec64be_aligned(buf + 112); \
 		M[0xF] = sph_dec64be_aligned(buf + 120); \
-		M[0xG] = sph_dec64be_aligned(buf + 128); \
-		M[0xH] = sph_dec64be_aligned(buf + 136); \
-		M[0xI] = sph_dec64be_aligned(buf + 144); \
-		M[0xJ] = sph_dec64be_aligned(buf + 152); \
-		M[0xK] = sph_dec64be_aligned(buf + 160); \
-		M[0xL] = sph_dec64be_aligned(buf + 168); \
-		M[0xM] = sph_dec64be_aligned(buf + 176); \
-		M[0xN] = sph_dec64be_aligned(buf + 184); \
-		M[0xO] = sph_dec64be_aligned(buf + 192); \
-		M[0xP] = sph_dec64be_aligned(buf + 200); \
-		M[0xQ] = sph_dec64be_aligned(buf + 208); \
-		M[0xR] = sph_dec64be_aligned(buf + 216); \
-		M[0xS] = sph_dec64be_aligned(buf + 224); \
-		M[0xT] = sph_dec64be_aligned(buf + 232); \
-		M[0xU] = sph_dec64be_aligned(buf + 240); \
-		M[0xV] = sph_dec64be_aligned(buf + 248); \
 		for (r = 0; r < 16; r ++) \
 			ROUND_B(r); \
 		H0 ^= S0 ^ V0 ^ V8; \
